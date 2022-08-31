@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome To Phone Hunter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <style>
+    </style>
+</head>
+
+<header>
+    <h1 class="text-center text-primary my-5">Phone Hunter</h1>
+</header>
+
+<main class="container">
+    <section class="my-5">
+        <div class="mb-3">
+            <input id="search-input-feild" type="text" class="form-control" id="exampleFormControlInput1"
+                placeholder="Search here">
+            <button id="search-btn" class="btn btn-primary my-4 w-100">Click me</button>
+        </div>
+    </section>
+
+    <section>
+        <div id="card-container" class="row row-cols-1 row-cols-md-5 g-4"></div>
+    </section>
+
+    <!-- load spinner -->
+    <section id="loading" class="d-none">
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- error show section -->
+    <section id="error-message" class="d-none">
+        <h1 class="text-center text-danger my-4">No Phone Found. Search Again</h1>
+    </section>
+
+    <!-- show all button -->
+    <section id="show-all" class="text-center d-none">
+        <button id="show-all-btn" class="btn btn-primary my-4">Show All</button>
+    </section>
+</main>
+
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
