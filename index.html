@@ -13,7 +13,7 @@
 </head>
 
 <header>
-    <h1 class="text-center text-primary my-5">Phone Hunter</h1>
+    <h1 class="text-center text-primary my-5">Welcome To My Phone Hunter</h1>
 </header>
 
 <main class="container">
@@ -26,7 +26,7 @@
     </section>
 
     <section>
-        <div id="card-container" class="row row-cols-1 row-cols-md-5 g-4"></div>
+        <div id="card-container" class="row row-cols-1 row-cols-md-4 g-4"></div>
     </section>
 
     <!-- load spinner -->
@@ -46,6 +46,27 @@
     <!-- show all button -->
     <section id="show-all" class="text-center d-none">
         <button id="show-all-btn" class="btn btn-primary my-4">Show All</button>
+    </section>
+
+    <section>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 id="modal-title" class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div id="modal-body" class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 </main>
 

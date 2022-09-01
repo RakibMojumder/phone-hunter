@@ -20,16 +20,16 @@ const displayPhoneData = (phones, dataLimit) => {
 
     // display 10 items
     const showAll = document.getElementById('show-all');
-    if (dataLimit && phones.length > 10) {
+    if (dataLimit && phones.length > 8) {
         showAll.classList.remove('d-none');
-        phones = phones.slice(0, 10);
+        phones = phones.slice(0, 8);
     } else {
         showAll.classList.add('d-none');
     }
 
 
     phones.forEach(phone => {
-        console.log(phone)
+        // console.log(phone)
         const newDiv = document.createElement('div');
         newDiv.classList.add('col');
         newDiv.innerHTML = `
@@ -37,8 +37,9 @@ const displayPhoneData = (phones, dataLimit) => {
             <img src="${phone.image}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${phone.phone_name}</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                    additional content. This content is a little bit longer.</p>
+                <p class="card-text">This is a longer card with supporting text below as a natural.</p>
+                <button onclick="loadPhoneDetails('${phone.slug}')" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Show Details</button>
+
             </div>
         </div>
        `;
@@ -86,5 +87,36 @@ document.getElementById('search-input-feild').addEventListener('keypress', (e) =
         laodPhoneData(10);
     }
 })
+
+
+// load phone details
+const loadPhoneDetails = async (slug) => {
+    // console.log(slug)
+    const res = await fetch(`https://openapi.programming-hero.com/api/phone/${slug}`);
+    const result = await res.json();
+    displayPhoneDetails(result.data);
+};
+
+
+const displayPhoneDetails = phoneDetails => {
+    console.log(phoneDetails)
+    document.getElementById('modal-title').innerText = phoneDetails.name;
+
+    const modalBody = document.getElementById('modal-body');
+    modalBody.textContent = '';
+
+    const mainFeaturesDiv = document.createElement('div');
+    mainFeaturesDiv.innerHTML = `
+    <h3>Main Features :</h3>
+    <p><span class="fw-bold">Chip Set :</span>  ${phoneDetails.mainFeatures.chipSet ? phoneDetails.mainFeatures.chipSet : ''}</p>
+    <p><span class="fw-bold">Display Size :</span> ${phoneDetails.mainFeatures.displaySize ? phoneDetails.mainFeatures.displaySize : ''}</p>
+    <p><span class="fw-bold">Memory :</span> ${phoneDetails.mainFeatures.memory ? phoneDetails.mainFeatures.memory : ''}</p>
+    <p><span class="fw-bold">Stroge :</span> ${phoneDetails.mainFeatures.storage ? phoneDetails.mainFeatures.storage : ''}</p>
+    <p><span class="fw-bold">Relase Date :</span> ${phoneDetails.releaseDate ? phoneDetails.releaseDate : ''}</p>
+    `;
+
+    modalBody.appendChild(mainFeaturesDiv);
+}
+
 
 // fetchPhoneData('oppo');
